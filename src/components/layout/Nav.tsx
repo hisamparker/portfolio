@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { MdClose, MdMenu } from 'react-icons/md';
 
 const NavStyles = styled.nav`
@@ -13,10 +13,9 @@ const NavStyles = styled.nav`
   background: var(--lowlight);
   @media only screen and (max-width: 768px) {
     padding: 0;
-    ${({ hidden }) => hidden
-    && css`
+    .hide-item {
       transform: translateY(calc(-100% - var(--top)));
-    `};
+    }
   }
 `;
 
@@ -102,7 +101,7 @@ const Nav: React.FC = () => {
       >
         <MdMenu />
       </HamburgerMenu>
-      <NavItems hidden={!showNavDropdown}>
+      <NavItems className={!showNavDropdown ? 'hide-item' : ''}>
         <CloseNav
           onClick={() => setShowNavDropdown(!showNavDropdown)}
           role="button"

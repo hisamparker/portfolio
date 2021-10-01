@@ -11,7 +11,7 @@ const HeroContent = styled.article`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-top: 10rem;
+  padding: 10rem;
 `;
 
 const PageTitle = styled.h1`
