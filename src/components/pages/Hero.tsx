@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import heroImage from '../../assets/images/thumbs-up.jpg';
+import heroImage from '../../assets/images/hero-image.png';
+import LinkButton from '../ui/ButtonLink';
 
-const HeroContent = styled.article`
+const HeroContentWrapper = styled.article`
   width: 100%;
   height: 100%;
   text-align: center;
@@ -11,16 +12,20 @@ const HeroContent = styled.article`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 10rem;
+  padding: 6rem 0 6rem;
 `;
 
-const PageTitle = styled.h1`
-  font-size: 2rem;
+export const PageTitle = styled.h1`
+  font-size: 3rem;
   position: relative;
+  top: -100px;
   text-align: left;
   span {
     display: inline-block;
     width: 100%;
+  }
+  @media only screen and (max-width: 768px) {
+    top: -75px;
   }
 `;
 
@@ -31,16 +36,24 @@ const ImpactText = styled.span`
 `;
 
 const ImageWrapper = styled.section`
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
   height: 600px;
-  margin: 0 auto 1rem;
-  border: 2px solid var(--primaryLight);
+  padding: 2rem;
+  margin: 0 auto 4rem;
+  img {
+    width: 100%;
+    position: relative;
+    right: -200px;
+    @media only screen and (max-width: 768px) {
+    right: 0;
+  }
+  }
 `;
 
 export const ParagraphWrapper = styled.section`
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 0 auto 2rem;
   font-size: 1.8rem;
   line-height: 1.3em;
   text-align: left;
@@ -54,13 +67,13 @@ export const ParagraphWrapper = styled.section`
 `;
 
 const Hero: React.FC = () => (
-  <HeroContent>
-    <PageTitle>
-      <span>hi, </span>
-      <ImpactText>i&apos;m sam</ImpactText>
-    </PageTitle>
+  <HeroContentWrapper>
     <ImageWrapper>
       <img src={heroImage} alt="sam" />
+      <PageTitle>
+        <span>hi, </span>
+        <ImpactText>i&apos;m sam</ImpactText>
+      </PageTitle>
     </ImageWrapper>
     <ParagraphWrapper>
       <p>I love coding. Especially JavaScript, React, and CSS (styled components too!)</p>
@@ -69,7 +82,20 @@ const Hero: React.FC = () => (
         with my communications and education background.
       </p>
     </ParagraphWrapper>
-  </HeroContent>
+    <LinkButton
+      hoverColor="var(--primaryHover)"
+      border="solid var(--primaryLight) 1px"
+      color="var(--primaryLight)"
+      backgroundColor="transparent"
+      height="75px"
+      width="200px"
+      radius="0"
+      to="/projects"
+      href={null}
+    >
+      my projects
+    </LinkButton>
+  </HeroContentWrapper>
 );
 
 export default Hero;

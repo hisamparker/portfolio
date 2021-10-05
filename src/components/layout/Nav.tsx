@@ -14,7 +14,7 @@ const NavStyles = styled.nav`
   @media only screen and (max-width: 768px) {
     padding: 0;
     .hide-item {
-      transform: translateY(calc(-100% - var(--top)));
+      transform: translateY(calc(-110% - var(--top)));
     }
   }
 `;
@@ -44,9 +44,10 @@ const NavItems = styled.ul`
     --top: 1rem;
     transition: 0.3s ease transform;
     background-color: var(--primaryDark);
+    border: 2px solid var(--primary);
+    border-right: 0;
     padding: 2rem;
     max-width: 300px;
-    border-radius: 15px;
     position: absolute;
     right: 0;
     top: var(--top);
@@ -55,7 +56,6 @@ const NavItems = styled.ul`
 
 const NavItem = styled.li`
   display: inline-block;
-  border-radius: 8px;
   transition: 0.3s ease background-color;
   &:hover {
     background-color: var(--primary);

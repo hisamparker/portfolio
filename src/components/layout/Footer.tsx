@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LinkColumn from '../elements/LinkColumn';
+import LinkColumn from '../ui/LinkColumn';
 import { ParagraphWrapper } from '../pages/Hero';
 
 const FooterContent = styled.article`

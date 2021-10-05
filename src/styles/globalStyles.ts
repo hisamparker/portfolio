@@ -9,11 +9,14 @@ const GlobalStyles = createGlobalStyle`
   :root{
     --background: hsl(0, 0%, 15%);
     --primaryLight: hsl(0, 6%, 72%);
-    --primaryFont: hsl(0, 6%, 83%);
+    --primaryText: hsl(0, 6%, 83%);
     --primaryDark: hsl(0, 0%, 12%);
     --primary: hsl(0, 0%, 21%);
     --highlight : white;
     --lowlight: black;
+    --primaryHover: hsla(0, 0%, 100%, 0.1);
+    --primaryBorder: hsl(0deg 0% 29%);
+    --maxWidth: 1200px;
   }
   html{
     font-size: 10px;
@@ -35,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     outline: none
   }
   .wrapper {
-    max-width: 1200px;
+    max-width: var(--maxWidth);
     width: 90%;
     margin: 0 auto;
   }
