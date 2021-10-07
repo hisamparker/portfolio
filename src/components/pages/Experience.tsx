@@ -10,23 +10,24 @@ const ContentWrapper = styled.article`
   margin: 0 auto;
   max-width: var(--maxWidth);
   padding: 10rem 1rem 7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
 `;
 
 const ItemsWrapper = styled.section`
   display: grid;
   justify-content: center;
-  width: 100%;
+  max-width: 90vw;
   grid-template-columns: repeat(auto-fill, max(400px));
   grid-gap: 4rem;
   margin-bottom: 5rem;
+  justify-items: center;
 `;
 
 const PageTitle = styled.h1`
     font-family: 'Montserrat Bold';
-    font-size: 6rem;
+    font-size: 4.5rem;
     text-transform: uppercase;
     margin-bottom: 5rem;
     color: var(--highlight);
@@ -43,7 +44,7 @@ const Experience: React.FC = () => (
             company={experience.company}
             timeline={experience.timeline}
             text={experience.desc}
-            cardWidth="100%"
+            cardWidth="90%"
             key={experience.id}
           />
         ))}
