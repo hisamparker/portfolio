@@ -1,7 +1,7 @@
 import React from 'react';
 import Tech from '../layout/Tech';
-import ContactForm from '../ui/ContactForm';
 import About from './About';
+import Contact from './Contact';
 import Experience from './Experience';
 import Hero from './Hero';
 import Projects from './Projects';
@@ -13,7 +13,7 @@ const Home: React.FC = () => (
     <Tech />
     <Projects />
     <Experience />
-    <ContactForm />
+    <Contact />
   </>
 );
 

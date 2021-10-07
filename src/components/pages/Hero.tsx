@@ -29,7 +29,7 @@ export const PageTitle = styled.h1`
   }
 `;
 
-const ImpactText = styled.span`
+export const ImpactText = styled.span`
   font-family: 'Montserrat SemiBold';
   font-size: 7rem;
   color: var(--highlight);

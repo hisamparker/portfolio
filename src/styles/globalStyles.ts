@@ -16,6 +16,10 @@ const GlobalStyles = createGlobalStyle`
     --lowlight: black;
     --primaryHover: hsla(0, 0%, 100%, 0.1);
     --primaryBorder: hsl(0deg 0% 29%);
+    --error: hsl(6, 66%, 48%);
+    --errorLight: hsl(5, 70%, 54%);
+    --success: hsl(173, 100%, 24%);
+    --successLight: hsl(174, 100%, 29%);
     --maxWidth: 1200px;
   }
   html{

@@ -32,7 +32,7 @@ const StyledButtonLink = styled.div<StyleProps>`
   a {
     color: ${({ color }) => color};
     transition: all 0.3s;
-    tranform: scale(1, 1);
+    transform: scale(1, 1);
   }
   border: ${({ border }) => border};
   &:hover {
@@ -54,12 +54,11 @@ const StyledButtonLink = styled.div<StyleProps>`
   &:hover::before {
   opacity: 1;
   transform: scale(1, 1);
-}
-&:hover::after {
-  transform: scale(1, .1);
-  opacity: 0;
-}
-
+  }
+  &:hover::after {
+    transform: scale(1, .1);
+    opacity: 0;
+  }
 `;
 
 const ButtonLink: React.FC<Props> = ({
@@ -79,7 +78,6 @@ const ButtonLink: React.FC<Props> = ({
       && (
         <a href={href}>
           <StyledButtonLink
-  // eslint-disable-next-line react/button-has-type
             border={border}
             backgroundColor={backgroundColor}
             color={color}
