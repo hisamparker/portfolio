@@ -44,13 +44,8 @@ const Footer: React.FC = () => (
     </ContentBlock>
     <CollumnBlock>
       <LinkColumn
-        heading="Important Links"
+        heading="Internal Links"
         links={[
-          {
-            title: 'Home',
-            path: '/',
-            type: 'Link',
-          },
           {
             type: 'Link',
             title: 'About',
@@ -72,16 +67,12 @@ const Footer: React.FC = () => (
         heading="social Links"
         links={[
           {
-            title: 'Facebook',
-            path: 'http://facebook.com',
+            title: 'LinkedIn',
+            path: 'https://www.linkedin.com/in/samaraparker/',
           },
           {
-            title: 'Twitter',
-            path: 'http://twitter.com',
-          },
-          {
-            title: 'Instagram',
-            path: 'http://instagram.com',
+            title: 'GitHub',
+            path: 'https://github.com/hisamparker/',
           },
         ]}
       />

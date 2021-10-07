@@ -16,7 +16,7 @@ const tech = [
     id: uuidv4(),
     name: 'React.js',
     desc:
-      'My very favourite library / framework / thing about Facebook♡',
+      'My very favourite library / framework / thing about Facebook.',
     logo: 'SiReact',
   },
   {

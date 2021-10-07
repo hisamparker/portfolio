@@ -1,9 +1,15 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 import Button from './Button';
+
+interface InputProps {
+  valid: boolean;
+  error: boolean;
+}
 
 const validationSchema = Yup.object({
   name: Yup
@@ -19,47 +25,56 @@ const validationSchema = Yup.object({
 });
 
 const StyledForm = styled.form`
-  background: white;
-  border: 1px solid #dedede;
+  background-color: var(--primary);
+  border: 1px solid var(--primaryDark);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
-  max-width: 500px;
-  padding: 30px 50px;
+  max-width: 400px;
+  min-width: 350px;
+  padding: 3rem;
+  button {
+    align-self: center;
+  }
 `;
 
-const Input = styled.input`
-  border: 1px solid #d9d9d9;
+const Input = styled.input<InputProps>`
+  background-color: var(--primary);
+  border: 1px solid ${({ valid, error }) => (valid ? 'green' : error ? 'red' : 'var(--lowlight)')};
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 1rem;
   width: 100%;
   margin-bottom: 2rem;
 `;
-const TextArea = styled.textarea`
-  border: 1px solid #d9d9d9;
+const TextArea = styled.textarea<InputProps>`
+  background-color: var(--primary);
+  border: 1px solid ${({ valid, error }) => (valid ? 'green' : error ? 'red' : 'var(--lowlight)')};
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 1rem;
   width: 100%;
   margin-bottom: 2rem;
 `;
 
 const Label = styled.label`
-  color: #3d3d3d;
+  color: var(--primaryText);
   display: block;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 1.75rem;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 `;
 
-const NotificationText = styled.div`
-  color: red;
+const NotificationText = styled.div<InputProps>`
+  color: ${({ valid, error }) => (valid ? 'green' : error ? 'red' : 'transparent')};
   font-family: sans-serif;
-  font-size: 12px;
-  height: 30px;
+  font-size: 1.25rem;
+  height: 2rem;
+  position: relative;
+  top: -1.25rem;
 `;
 
 const Form: React.FC = () => (
@@ -98,27 +113,34 @@ const Form: React.FC = () => (
       }}
     >
       {({
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        // eslint-disable-next-line no-unused-vars
-        values, isSubmitting, handleSubmit, errors, touched,
+        isSubmitting, handleSubmit, errors, touched,
       }) => (
         <StyledForm onSubmit={handleSubmit}>
           <Label>Name</Label>
-          <Field name="name" as={Input} />
-          {errors.name && touched.name
-            ? (<NotificationText>{errors.name}</NotificationText>)
-            : null}
+          <Field name="name" as={Input} valid={!errors.name && touched.name} error={errors.name && touched.name} />
+          {errors.name && touched.name && (
+            <NotificationText error valid={false}>{errors.name}</NotificationText>
+          )}
+          {!errors.name && touched.name && (
+            <NotificationText error={false} valid>Yay!</NotificationText>
+          )}
           <Label>Email</Label>
-          <Field name="email" as={Input} />
-          {errors.email && touched.email
-            ? (<NotificationText>{errors.email}</NotificationText>)
-            : null}
+          <Field name="email" as={Input} valid={!errors.email && touched.email} error={errors.email && touched.email} />
+          {errors.email && touched.email && (
+            <NotificationText error valid={false}>{errors.email}</NotificationText>
+          )}
+          {!errors.email && touched.email && (
+            <NotificationText error={false} valid>TY ♡</NotificationText>
+          )}
           <Label>Message</Label>
-          <Field name="message" as={TextArea} />
-          {errors.message && touched.message
-            ? (<NotificationText>{errors.message}</NotificationText>)
-            : null}
-          {/* display cur values */}
+          <Field name="message" as={TextArea} valid={!errors.message && touched.message} error={errors.message && touched.message} />
+          {errors.message && touched.message && (
+            <NotificationText error valid={false}>{errors.message}</NotificationText>
+          )}
+          {!errors.message && touched.message && (
+            <NotificationText error={false} valid>Interesting</NotificationText>
+          )}
+          {/* display cur values - must also add values to form props */}
           {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
           <Button
             type="submit"
@@ -126,8 +148,8 @@ const Form: React.FC = () => (
             border="solid var(--primaryLight) 1px"
             color="var(highlight)"
             backgroundColor="var(--primary)"
-            height="75px"
-            width="200px"
+            height="50px"
+            width="150px"
             radius="0"
             disabled={isSubmitting}
           >

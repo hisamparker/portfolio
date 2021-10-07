@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AboutImage from '../../assets/images/about-image.png';
+import Tech from '../layout/Tech';
 import LinkButton from '../ui/ButtonLink';
 
 const AboutContentWrapper = styled.article`
@@ -61,46 +62,49 @@ const ImageWrapper = styled.section`
 `;
 
 const About: React.FC = () => (
-  <AboutContentWrapper>
-    <TextContentWrapper>
-      <PageTitle>about</PageTitle>
-      <ParagraphWrapper>
-        hi. I&apos;m Sam. I like cookies. Chocolate chip and https.
-      </ParagraphWrapper>
+  <>
+    <AboutContentWrapper>
+      <TextContentWrapper>
+        <PageTitle>about</PageTitle>
+        <ParagraphWrapper>
+          hi. I&apos;m Sam. I like cookies. Chocolate chip and https.
+        </ParagraphWrapper>
 
-      <ButtonWrapper>
-        <LinkButton
-          hoverColor="var(--primaryHover)"
-          border="solid var(--primaryLight) 1px"
-          color="var(--primaryLight)"
-          backgroundColor="transparent"
-          height="75px"
-          width="200px"
-          radius="0"
-          to="/projects"
-          href={null}
-        >
-          my projects
-        </LinkButton>
-        <LinkButton
-          hoverColor="var(--primaryHover)"
-          border="0"
-          color="var(--primaryLight)"
-          backgroundColor="transparent"
-          height="75px"
-          width="225px"
-          radius="0"
-          to="/experience"
-          href={null}
-        >
-          work experience
-        </LinkButton>
-      </ButtonWrapper>
-    </TextContentWrapper>
-    <ImageWrapper>
-      <img src={AboutImage} alt="samara face" />
-    </ImageWrapper>
-  </AboutContentWrapper>
+        <ButtonWrapper>
+          <LinkButton
+            hoverColor="var(--primaryHover)"
+            border="solid var(--primaryLight) 1px"
+            color="var(--primaryLight)"
+            backgroundColor="transparent"
+            height="75px"
+            width="200px"
+            radius="0"
+            to="/projects"
+            href={null}
+          >
+            my projects
+          </LinkButton>
+          <LinkButton
+            hoverColor="var(--primaryHover)"
+            border="0"
+            color="var(--primaryLight)"
+            backgroundColor="var(--primary)"
+            height="75px"
+            width="225px"
+            radius="0"
+            to="/contact"
+            href={null}
+          >
+            contact me
+          </LinkButton>
+        </ButtonWrapper>
+      </TextContentWrapper>
+      <ImageWrapper>
+        <img src={AboutImage} alt="samara face" />
+      </ImageWrapper>
+    </AboutContentWrapper>
+    <Tech />
+  </>
 );
 
 export default About;

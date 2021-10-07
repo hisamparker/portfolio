@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import heroImage from '../../assets/images/hero-image.png';
 import LinkButton from '../ui/ButtonLink';
+import { ButtonWrapper } from './About';
 
 const HeroContentWrapper = styled.article`
   width: 100%;
@@ -53,7 +54,7 @@ const ImageWrapper = styled.section`
 
 export const ParagraphWrapper = styled.section`
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 4rem;
   font-size: 1.8rem;
   line-height: 1.3em;
   text-align: left;
@@ -82,19 +83,34 @@ const Hero: React.FC = () => (
         with my communications and education background.
       </p>
     </ParagraphWrapper>
-    <LinkButton
-      hoverColor="var(--primaryHover)"
-      border="solid var(--primaryLight) 1px"
-      color="var(--primaryLight)"
-      backgroundColor="transparent"
-      height="75px"
-      width="200px"
-      radius="0"
-      to="/projects"
-      href={null}
-    >
-      my projects
-    </LinkButton>
+    <ButtonWrapper>
+      <LinkButton
+        hoverColor="var(--primaryHover)"
+        border="solid var(--primaryLight) 1px"
+        color="var(--primaryLight)"
+        backgroundColor="transparent"
+        height="75px"
+        width="200px"
+        radius="0"
+        to="/projects"
+        href={null}
+      >
+        my projects
+      </LinkButton>
+      <LinkButton
+        hoverColor="var(--primaryHover)"
+        border="0"
+        color="var(--primaryLight)"
+        backgroundColor="var(--primary)"
+        height="75px"
+        width="225px"
+        radius="0"
+        to="/contact"
+        href={null}
+      >
+        contact me
+      </LinkButton>
+    </ButtonWrapper>
   </HeroContentWrapper>
 );
 

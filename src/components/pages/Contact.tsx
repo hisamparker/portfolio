@@ -1,63 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ImpactText, PageTitle } from './Hero';
+import { ImpactText } from './Hero';
 import Form from '../ui/Form';
 
-// const nameValidation = (name: string): string => {
-//   if (name.trim() === '') {
-//     return 'Your name is required';
-//   }
-//   if (/[^a-zA-Z -]/.test(name)) {
-//     return 'Invalid characters';
-//   }
-//   return 'valid';
-// };
-
-// const emailValidation = (email: string): string => {
-//   if (
-//     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-//       email,
-//     )
-//   ) {
-//     return 'valid';
-//   }
-//   if (email.trim() === '') {
-//     return 'Email is required';
-//   }
-//   return 'Please enter a valid email';
-// };
-
-// const messageValidation = (message: string): string => {
-//   if (message.trim() === '') {
-//     return 'Message is required';
-//   }
-//   return 'valid';
-// };
-
-// const validate = {
-//   name: nameValidation,
-//   email: emailValidation,
-//   messgae: messageValidation,
-// };
-
-// const initialValues = {
-//   name: '',
-//   email: '',
-//   message: '',
-// };
-
 const ContentWrapper = styled.article`
-  padding: 10rem 2rem;
+  padding: 15rem 2rem;
   margin: 0 auto;
   max-width: var(--maxWidth);
   display: grid;
+  justify-content: center;
+`;
+
+const PageTitle = styled.h1`
+  font-size: 3rem;
+  position: relative;
+  text-align: left;
+  margin-bottom: 5rem;
+  span {
+    display: inline-block;
+    width: 100%;
+  }
+  @media only screen and (max-width: 768px) {
+    top: -75px;
+  }
 `;
 
 const Contact: React.FC = () => (
   <ContentWrapper>
     <PageTitle>
       oh hai,
-      <ImpactText>Contact me :</ImpactText>
+      <ImpactText>Contact me:</ImpactText>
     </PageTitle>
     <Form />
   </ContentWrapper>

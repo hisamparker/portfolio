@@ -148,6 +148,17 @@ const Nav: React.FC = () => {
         </NavItem>
         <NavItem>
           <NavLink
+            to="/experience"
+            onClick={() => setShowNavDropdown(!showNavDropdown)}
+            role="button"
+            onKeyDown={() => setShowNavDropdown(!showNavDropdown)}
+            tabIndex={0}
+          >
+            Experience
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
             to="/contact"
             onClick={() => setShowNavDropdown(!showNavDropdown)}
             role="button"
