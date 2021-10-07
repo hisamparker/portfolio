@@ -91,7 +91,7 @@ const Form: React.FC = () => (
         const { name, email, message } = data;
         const serviceId = 'service_8zeycgu';
         const templateId = 'contact_form';
-        const userId = process.env.REACT_APP_NOT_SECRET_USER_ID;
+        const userId = 'user_ZT6CmHL5TWeQrDoDRYaDQ';
         const templateParams = {
           name,
           email,
