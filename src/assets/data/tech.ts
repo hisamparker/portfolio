@@ -63,7 +63,7 @@ const tech = [
   },
   {
     id: uuidv4(),
-    name: 'TypeScriptL',
+    name: 'TypeScript',
     desc:
       'This is the way.',
     logo: 'SiTypescript',
