@@ -78,13 +78,7 @@ const ProjectCard: React.FC<Props> = ({
       <ButtonWrapper>
         <ButtonLink
           href={link}
-          hoverColor="var(--primaryHover)"
-          border="solid var(--primaryLight) 1px"
-          color="var(--primaryLight)"
-          backgroundColor="transparent"
-          height="50px"
-          width="125px"
-          radius="0"
+          variant="primary"
         >
           <>
             <IconWrapper>
@@ -97,13 +91,7 @@ const ProjectCard: React.FC<Props> = ({
         </ButtonLink>
         <ButtonLink
           href={repo}
-          hoverColor="var(--primaryHover)"
-          border="solid var(--primaryLight) 1px"
-          color="var(--primaryLight)"
-          backgroundColor="transparent"
-          height="50px"
-          width="150px"
-          radius="0"
+          variant="primary"
         >
           <>
             <div style={{ width: '3rem', display: 'inline-block', paddingRight: '1rem' }}>

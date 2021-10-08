@@ -72,26 +72,14 @@ const About: React.FC = () => (
 
         <ButtonWrapper>
           <LinkButton
-            hoverColor="var(--primaryHover)"
-            border="solid var(--primaryLight) 1px"
-            color="var(--primaryLight)"
-            backgroundColor="transparent"
-            height="75px"
-            width="200px"
-            radius="0"
+            variant="primary"
             to="/projects"
             href={null}
           >
             my projects
           </LinkButton>
           <LinkButton
-            hoverColor="var(--primaryHover)"
-            border="0"
-            color="var(--primaryLight)"
-            backgroundColor="var(--primary)"
-            height="75px"
-            width="225px"
-            radius="0"
+            variant="secondary"
             to="/contact"
             href={null}
           >

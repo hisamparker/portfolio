@@ -2,35 +2,20 @@ import React, { ReactChild, ReactChildren } from 'react';
 import styled from 'styled-components';
 
 interface StyleProps {
-  border: string;
-  color: string;
-  radius: string
-  width: string;
-  height: string;
-  hoverColor: string;
-  backgroundColor: string;
+  variant: string;
 }
 
 interface Props extends StyleProps {
-  type?: 'submit' | 'reset' | 'button';
+  type: 'submit' | 'reset' | 'button';
   children: ReactChild | ReactChildren | null
   // eslint-disable-next-line react/require-default-props
   onClick?: () => void;
   disabled: boolean;
 }
 
-// const StyledButton = styled.button<StyleProps>`
-//   border: ${({ border }) => border};
-//   background-color: ${({ color }) => color};
-//   width: ${({ width }) => width};
-//   height: ${({ height }) => height};
-//   border-radius: ${({ radius }) => radius};
-// `;
-const StyledButton = styled.button<StyleProps>`
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  border-radius: ${({ radius }) => radius};
+const ButtonStyles = styled.button<StyleProps>`
+  background-color: ${({ variant }) => (variant === 'primary' ? 'transparent' : 'var(--primary)')};
+  padding: 1rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,13 +23,12 @@ const StyledButton = styled.button<StyleProps>`
   transition: all 0.3s;
   position: relative;
   a {
-    color: ${({ color }) => color};
+    color: var(--primaryText);
     transition: all 0.3s;
     transform: scale(1, 1);
   }
-  border: ${({ border }) => border};
+  border: ${({ variant }) => (variant === 'primary' ? 'solid var(--primaryLight) 1px' : null)};
   &:hover {
-    cursor: pointer;
     border: none;
   }
   &::before, ::after {
@@ -57,7 +41,7 @@ const StyledButton = styled.button<StyleProps>`
     height: 100%;
     z-index: 1;
     opacity: 0;
-    background: ${({ hoverColor }) => hoverColor};
+    background: var(--primaryHover);
     transform: scale(0.1, 1);
   }
   &:hover::before {
@@ -68,41 +52,24 @@ const StyledButton = styled.button<StyleProps>`
     transform: scale(1, .1);
     opacity: 0;
   }
-
 `;
 
 const Button: React.FC<Props> = ({
   type = 'button',
-  border,
-  color,
   children = null,
-  height,
   onClick,
-  radius,
-  width,
-  hoverColor,
-  backgroundColor,
   disabled,
+  variant,
 }) => (
-  <StyledButton
+  <ButtonStyles
     // eslint-disable-next-line react/button-has-type
     type={type}
     onClick={onClick}
-    border={border}
-    color={color}
-    height={height}
-    width={width}
-    radius={radius}
-    hoverColor={hoverColor}
-    backgroundColor={backgroundColor}
     disabled={disabled}
+    variant={variant}
   >
     {children}
-  </StyledButton>
+  </ButtonStyles>
 );
-
-Button.defaultProps = {
-  type: 'button',
-};
 
 export default Button;

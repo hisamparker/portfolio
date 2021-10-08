@@ -1,5 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+  BrowserRouter as Router, Route, Switch, useLocation,
+} from 'react-router-dom';
 import Footer from './components/layout/Footer';
 import Nav from './components/layout/Nav';
 import About from './components/pages/About';
@@ -8,9 +10,20 @@ import Experience from './components/pages/Experience';
 import Home from './components/pages/Home';
 import Projects from './components/pages/Projects';
 
+const ScrollToTop: React.FC = (): null => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const App: React.FC = () => (
   <>
     <Router>
+      <ScrollToTop />
       <Nav />
       <Switch>
         <Route path="/about">

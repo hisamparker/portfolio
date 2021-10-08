@@ -44,7 +44,7 @@ const Footer: React.FC = () => (
     </ContentBlock>
     <CollumnBlock>
       <LinkColumn
-        heading="Internal Links"
+        heading="Site Nav"
         links={[
           {
             type: 'Link',

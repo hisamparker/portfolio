@@ -143,14 +143,8 @@ const Form: React.FC = () => (
           {/* display cur values - must also add values to form props */}
           {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
           <Button
+            variant="primary"
             type="submit"
-            hoverColor="var(--primaryHover)"
-            border="solid var(--primaryLight) 1px"
-            color="var(highlight)"
-            backgroundColor="var(--primary)"
-            height="50px"
-            width="150px"
-            radius="0"
             disabled={isSubmitting}
           >
             Submit

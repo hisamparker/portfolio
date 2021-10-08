@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface StyleProps {
-  border: string;
-  color: string;
-  hoverColor: string;
-  backgroundColor: string;
-  radius: string
-  width: string;
-  height: string;
+  variant: string;
 }
 
 interface Props extends StyleProps {
@@ -19,10 +13,8 @@ interface Props extends StyleProps {
 }
 
 const StyledButtonLink = styled.div<StyleProps>`
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  border-radius: ${({ radius }) => radius};
+  background-color: ${({ variant }) => (variant === 'primary' ? 'transparent' : 'var(--primary)')};
+  padding: 1rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,11 +22,11 @@ const StyledButtonLink = styled.div<StyleProps>`
   transition: all 0.3s;
   position: relative;
   a {
-    color: ${({ color }) => color};
+    color: var(--primaryText);
     transition: all 0.3s;
     transform: scale(1, 1);
   }
-  border: ${({ border }) => border};
+  border: ${({ variant }) => (variant === 'primary' ? 'solid var(--primaryLight) 1px' : null)};
   &:hover {
     border: none;
   }
@@ -48,7 +40,7 @@ const StyledButtonLink = styled.div<StyleProps>`
     height: 100%;
     z-index: 1;
     opacity: 0;
-    background: ${({ hoverColor }) => hoverColor};
+    background: var(--primaryHover);
     transform: scale(0.1, 1);
   }
   &:hover::before {
@@ -62,13 +54,7 @@ const StyledButtonLink = styled.div<StyleProps>`
 `;
 
 const ButtonLink: React.FC<Props> = ({
-  border,
-  color,
-  hoverColor,
-  backgroundColor,
-  height,
-  radius,
-  width,
+  variant,
   to,
   href,
   children = null,
@@ -78,13 +64,7 @@ const ButtonLink: React.FC<Props> = ({
       && (
         <a href={href}>
           <StyledButtonLink
-            border={border}
-            backgroundColor={backgroundColor}
-            color={color}
-            hoverColor={hoverColor}
-            height={height}
-            width={width}
-            radius={radius}
+            variant={variant}
           >
             {children}
           </StyledButtonLink>
@@ -93,14 +73,7 @@ const ButtonLink: React.FC<Props> = ({
     {!href && to && (
     <Link to={to}>
       <StyledButtonLink
-    // eslint-disable-next-line react/button-has-type
-        border={border}
-        backgroundColor={backgroundColor}
-        color={color}
-        hoverColor={hoverColor}
-        height={height}
-        width={width}
-        radius={radius}
+        variant={variant}
       >
         {children}
       </StyledButtonLink>
