@@ -6,7 +6,7 @@ import ExperienceCard from '../ui/ExperienceCard';
 import { ButtonWrapper } from './About';
 import LinkButton from '../ui/ButtonLink';
 
-const ContentWrapper = styled.article`
+export const ContentWrapper = styled.article`
   margin: 0 auto;
   max-width: var(--maxWidth);
   padding: 10rem 1rem 7rem;
@@ -15,7 +15,7 @@ const ContentWrapper = styled.article`
   justify-items: center;
 `;
 
-const ItemsWrapper = styled.section`
+export const ItemsWrapper = styled.section`
   display: grid;
   justify-content: center;
   max-width: 90vw;
@@ -25,7 +25,7 @@ const ItemsWrapper = styled.section`
   justify-items: center;
 `;
 
-const PageTitle = styled.h1`
+export const PageTitle = styled.h1`
     font-family: 'Montserrat Bold';
     font-size: 4.5rem;
     text-transform: uppercase;

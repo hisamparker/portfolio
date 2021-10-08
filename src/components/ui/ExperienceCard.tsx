@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface CardWrapperProps {
+export interface StyleProps {
   width: string;
-  key: string;
 }
 
 interface Props {
@@ -15,7 +14,7 @@ interface Props {
   key: string;
 }
 
-const CardWrapper = styled.article<CardWrapperProps>`
+const CardWrapper = styled.article<StyleProps>`
   width: ${({ width }) => width};
   background-color: var(--primary);
   margin-top: 1rem;

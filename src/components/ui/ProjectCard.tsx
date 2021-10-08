@@ -4,19 +4,10 @@ import { SiGithub } from 'react-icons/si';
 import { FaPlayCircle } from 'react-icons/fa';
 import ButtonLink from './ButtonLink';
 import { ButtonWrapper } from '../pages/About';
-
-interface ImageWrapperProps {
-  width: string;
-}
-
-interface CardWrapperProps {
-  width: string;
-  key: string;
-}
+import { StyleProps } from './ExperienceCard';
 
 interface Props {
   image: string;
-  imageWidth: string;
   title: string;
   text: string;
   link: string;
@@ -25,13 +16,13 @@ interface Props {
   key: string;
 }
 
-const CardWrapper = styled.article<CardWrapperProps>`
+const CardWrapper = styled.article<StyleProps>`
   width: ${({ width }) => width};
   background-color: var(--primary);
 `;
 
-const ImageWrapper = styled.section<ImageWrapperProps>`
-  width: ${({ width }) => width};
+const ImageWrapper = styled.section`
+  width: 100%;
   overflow: hidden;
   display: inline-block;
   img {
@@ -73,14 +64,13 @@ const ProjectCard: React.FC<Props> = ({
   image,
   title,
   text,
-  imageWidth,
   cardWidth,
   repo,
   link,
   key,
 }) => (
   <CardWrapper key={key} width={cardWidth}>
-    <ImageWrapper width={imageWidth}>
+    <ImageWrapper>
       {image && <img src={image} alt={title} />}
     </ImageWrapper>
     <TextContentWrapper>
