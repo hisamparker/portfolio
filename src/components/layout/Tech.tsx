@@ -99,6 +99,7 @@ const SectionTitle = styled.h1`
 
 const ItemsWrapper = styled.section`
   display: grid;
+  justify-items: center;
   width: 90%;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 1.5rem;

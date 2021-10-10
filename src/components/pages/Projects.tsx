@@ -15,7 +15,7 @@ const Projects: React.FC = () => (
           title={project.name}
           repo={project.repo}
           text={project.desc}
-          cardWidth="90%"
+          cardWidth="100%"
           link={project.demo}
           key={project.id}
         />

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import heroImage from '../../assets/images/hero-image.png';
+import heroImage from '../../assets/images/hero-image-min.png';
 import LinkButton from '../ui/ButtonLink';
 import { ButtonWrapper } from './About';
 
@@ -13,7 +13,7 @@ const HeroContentWrapper = styled.article`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 6rem 0 6rem;
+  padding: 10rem 0 6rem;
 `;
 
 export const PageTitle = styled.h1`
@@ -37,18 +37,24 @@ export const ImpactText = styled.span`
 `;
 
 const ImageWrapper = styled.section`
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
-  height: 600px;
-  padding: 2rem;
-  margin: 0 auto 4rem;
+  max-height: 600px;
+  padding: 4rem;
+  margin: 0 auto;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 2rem;
+    padding: 3rem 1rem 4rem;
+  }
   img {
     width: 100%;
     position: relative;
-    right: -200px;
+    right: -225px;
+    bottom: 10px;
     @media only screen and (max-width: 768px) {
-    right: 0;
-  }
+      right: 0;
+      bottom: 40px;
+    }
   }
 `;
 

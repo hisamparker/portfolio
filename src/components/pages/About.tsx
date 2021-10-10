@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import AboutImage from '../../assets/images/about-image.png';
+import AboutImage from '../../assets/images/about-image-min.png';
 import Tech from '../layout/Tech';
 import LinkButton from '../ui/ButtonLink';
 
 const AboutContentWrapper = styled.article`
-  padding: 10rem 2rem 0;
+  padding: 10rem 2rem 5rem 2rem;
   margin: 0 auto;
   max-width: var(--maxWidth);
   display: grid;
@@ -55,7 +55,10 @@ export const ButtonWrapper = styled.section`
 `;
 
 const ImageWrapper = styled.section`
+  max-width: 500px;
+  padding-left: 2rem;
   @media only screen and (max-width: 768px) {
+    padding: 0;
     grid-row: 1;
     max-width: 316px;
   }

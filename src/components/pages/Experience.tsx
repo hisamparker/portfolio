@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import experienceArray from '../../assets/data/experience';
-import Tech from '../layout/Tech';
 import ExperienceCard from '../ui/ExperienceCard';
 import { ButtonWrapper } from './About';
 import LinkButton from '../ui/ButtonLink';
@@ -18,11 +17,11 @@ export const ContentWrapper = styled.article`
 export const ItemsWrapper = styled.section`
   display: grid;
   justify-content: center;
-  max-width: 90vw;
-  grid-template-columns: repeat(auto-fill, max(400px));
-  grid-gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(0px,400px));
+  grid-gap: 2rem;
   margin-bottom: 5rem;
   justify-items: center;
+  width:100%;
 `;
 
 export const PageTitle = styled.h1`
@@ -44,7 +43,7 @@ const Experience: React.FC = () => (
             company={experience.company}
             timeline={experience.timeline}
             text={experience.desc}
-            cardWidth="90%"
+            cardWidth="100%"
             key={experience.id}
           />
         ))}
@@ -66,7 +65,6 @@ const Experience: React.FC = () => (
         </LinkButton>
       </ButtonWrapper>
     </ContentWrapper>
-    <Tech />
   </>
 );
 
