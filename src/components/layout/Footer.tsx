@@ -39,7 +39,7 @@ const Footer: React.FC = () => (
     <ContentBlock>
       <SectionTitle className="footer__col1__title">Sam Parker</SectionTitle>
       <ParagraphWrapper>
-        Content designer and front-end web developper. I love React, JavaScript, and CSS ♡
+        Content designer and front-end web developer. I love React, JavaScript, and CSS ♡
       </ParagraphWrapper>
     </ContentBlock>
     <CollumnBlock>
@@ -64,7 +64,7 @@ const Footer: React.FC = () => (
         ]}
       />
       <LinkColumn
-        heading="social Links"
+        heading="Social Links"
         links={[
           {
             title: 'LinkedIn',

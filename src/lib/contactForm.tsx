@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable max-len */
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
-import Notification from './Notification';
+// import Notification from './Notification';
 
 const Form = styled.form`
   background: white;
@@ -123,34 +126,35 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Label>Name</Label>
-      <Input
-        required
-        type="text"
-        value={name}
-        onChange={handleNameOnChange}
-      />
-      {isNameFilledIn === 'false' && (<NotificationText>Please fill in your name</NotificationText>)}
-      <Label>Email</Label>
-      <Input
-        required
-        type="email"
-        placeholder="you@mail.me"
-        value={email}
-        onChange={handleEmailOnChange}
-      />
-      {isValidEmail === 'false' && (<NotificationText>Please enter valid email</NotificationText>)}
-      <Label>Message</Label>
-      <TextArea
-        value={message}
-        onChange={handleMessageOnChange}
-      />
-      {isMessageFilledIn === 'false' && (<NotificationText>Please include a message</NotificationText>)}
-      <button disabled={isValidEmail !== 'true' || isNameFilledIn !== 'true' || isMessageFilledIn !== 'true'} type="submit">Send Message</button>
-      {notificatioMessage && notificatioMessage.type === 'error' && (<Notification onClick={handleCloseNotification} type="error" width="450px" message={notificatioMessage.text} />)}
-      {emailSent && notificatioMessage && notificatioMessage.type === 'success' && (<Notification onClick={handleCloseNotification} type="success" width="450px" message={notificatioMessage.text} />)}
-    </Form>
+    <div>hi</div>
+    // <Form onSubmit={handleSubmit}>
+    //   <Label>Name</Label>
+    //   <Input
+    //     required
+    //     type="text"
+    //     value={name}
+    //     onChange={handleNameOnChange}
+    //   />
+    //   {isNameFilledIn === 'false' && (<NotificationText>Please fill in your name</NotificationText>)}
+    //   <Label>Email</Label>
+    //   <Input
+    //     required
+    //     type="email"
+    //     placeholder="you@mail.me"
+    //     value={email}
+    //     onChange={handleEmailOnChange}
+    //   />
+    //   {isValidEmail === 'false' && (<NotificationText>Please enter valid email</NotificationText>)}
+    //   <Label>Message</Label>
+    //   <TextArea
+    //     value={message}
+    //     onChange={handleMessageOnChange}
+    //   />
+    //   {isMessageFilledIn === 'false' && (<NotificationText>Please include a message</NotificationText>)}
+    //   <button disabled={isValidEmail !== 'true' || isNameFilledIn !== 'true' || isMessageFilledIn !== 'true'} type="submit">Send Message</button>
+    //   {notificatioMessage && notificatioMessage.type === 'error' && (<Notification onClick={handleCloseNotification} type="error" width="450px" message={notificatioMessage.text} />)}
+    //   {emailSent && notificatioMessage && notificatioMessage.type === 'success' && (<Notification onClick={handleCloseNotification} type="success" width="450px" message={notificatioMessage.text} />)}
+    // </Form>
   );
 };
 

@@ -32,7 +32,7 @@ const tech = [
   },
   {
     id: uuidv4(),
-    name: 'TypeScriptL',
+    name: 'TypeScript',
     desc:
       'This is the way♡',
     logo: SiTypescript,
@@ -53,7 +53,7 @@ const tech = [
   },
   {
     id: uuidv4(),
-    name: 'Git & GitHub',
+    name: 'Git / GitHub',
     desc:
       'Yay version controll!',
     logo: SiGithub,
@@ -67,7 +67,7 @@ const tech = [
   },
   {
     id: uuidv4(),
-    name: 'CSS & JSX',
+    name: 'CSS',
     desc:
       'The cascade is strong with this one.',
     logo: SiCss3,
@@ -108,7 +108,7 @@ const ItemsWrapper = styled.section`
 const Tech: React.FC = () => (
   <IconContext.Provider value={{ style: { fill: 'var(--primaryText)' } }}>
     <ContentWrapper>
-      <SectionTitle>the tech i know</SectionTitle>
+      <SectionTitle>The Tech I Know</SectionTitle>
       <ItemsWrapper>
         {tech.map((techItem) => {
           const Icon = techItem.logo;

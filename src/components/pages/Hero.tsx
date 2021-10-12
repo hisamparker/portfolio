@@ -78,8 +78,8 @@ const Hero: React.FC = () => (
     <ImageWrapper>
       <img src={heroImage} alt="sam" />
       <PageTitle>
-        <span>hi, </span>
-        <ImpactText>i&apos;m sam</ImpactText>
+        <span>Hi, </span>
+        <ImpactText>I&apos;m Sam</ImpactText>
       </PageTitle>
     </ImageWrapper>
     <ParagraphWrapper>

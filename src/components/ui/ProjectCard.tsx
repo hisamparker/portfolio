@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SiGithub } from 'react-icons/si';
 import { FaPlayCircle } from 'react-icons/fa';
+import { SiGithub } from 'react-icons/si';
 import ButtonLink from './ButtonLink';
 import { ButtonWrapper } from '../pages/About';
 import { StyleProps } from './ExperienceCard';
@@ -68,6 +68,7 @@ const ProjectCard: React.FC<Props> = ({
   repo,
   link,
   key,
+  children,
 }) => (
   <CardWrapper key={key} width={cardWidth}>
     <ImageWrapper>
@@ -105,6 +106,7 @@ const ProjectCard: React.FC<Props> = ({
       </ButtonWrapper>
       <Text>{text}</Text>
     </TextContentWrapper>
+    {children}
   </CardWrapper>
 );
 

@@ -25,7 +25,7 @@ const PageTitle = styled.h1`
 const Contact: React.FC = () => (
   <ContentWrapper>
     <PageTitle>
-      oh hai,
+      Oh hai,
       <ImpactText>Contact me:</ImpactText>
     </PageTitle>
     <Form />

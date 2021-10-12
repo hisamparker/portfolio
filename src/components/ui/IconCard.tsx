@@ -5,7 +5,7 @@ import styled from 'styled-components';
 interface Props {
   iconWidth: string;
   iconHeight: string;
-  title: string;
+  title: string | null;
   cardWidth: string;
   border: string;
   key: string;
@@ -37,7 +37,7 @@ const CardWrapper = styled.article<CardWrapperProps>`
 const IconWrapper = styled.section<IconWrapperProps>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  margin-bottom: 0.75rem;
+  margin-bottom: ${({ title }) => (title ? '0.75rem' : '0')};
 `;
 
 const Title = styled.h1`

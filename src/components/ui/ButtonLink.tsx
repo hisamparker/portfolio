@@ -21,14 +21,16 @@ const StyledButtonLink = styled.div<StyleProps>`
   font-size: 2rem;
   transition: all 0.3s;
   position: relative;
+  text-transform: capitalize;
   a {
     color: var(--primaryText);
     transition: all 0.3s;
     transform: scale(1, 1);
+    
   }
   border: ${({ variant }) => (variant === 'primary' ? 'solid var(--primaryLight) 1px' : null)};
   &:hover {
-    border: none;
+    border-color: transparent;
   }
   &::before, ::after {
     content: '';
@@ -62,7 +64,7 @@ const ButtonLink: React.FC<Props> = ({
   <>
     {href
       && (
-        <a href={href}>
+        <a href={href} target="_blank" rel="noreferrer">
           <StyledButtonLink
             variant={variant}
           >

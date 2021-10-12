@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MdClose } from 'react-icons/md';
+// import { MdClose } from 'react-icons/md';
 
 interface StyleProps {
   width: string;
@@ -8,13 +8,14 @@ interface StyleProps {
 }
 interface Props extends StyleProps {
   message: string;
-  onClick: () => void;
+  // onClick: () => void;
 }
 
 const StyledNotification = styled.article<StyleProps>`
   background-color: ${({ type }) => (type === 'error' ? 'var(--errorLight)' : 'var(--successLight)')};
   border-top: 8px solid ${({ type }) => (type === 'error' ? 'var(--error)' : 'var(--success)')};
   padding: 1rem 2rem 2rem;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--highlight);
   max-width: ${({ width }) => width};
@@ -25,26 +26,26 @@ const StyledNotification = styled.article<StyleProps>`
   }
 `;
 
-const CloseButton = styled(MdClose)`
-  fill: var(--highlight);
-  width: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+// const CloseButton = styled(MdClose)`
+//   fill: var(--highlight);
+//   width: 20px;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
 
 const Notification: React.FC<Props> = ({
-  onClick, message, width, type,
+  message, width, type,
 }) => (
   <StyledNotification type={type} width={width}>
-    <div
+    {/* <div
       onClick={onClick}
       onKeyDown={onClick}
       role="button"
       tabIndex={0}
     >
       <CloseButton />
-    </div>
+    </div> */}
     {message}
   </StyledNotification>
 );

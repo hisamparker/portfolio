@@ -70,7 +70,7 @@ const About: React.FC = () => (
       <TextContentWrapper>
         <PageTitle>about</PageTitle>
         <ParagraphWrapper>
-          hi. I&apos;m Sam. I like cookies. Chocolate chip and https.
+          Hi. I&apos;m Sam. I like cookies. Chocolate chip and https.
         </ParagraphWrapper>
 
         <ButtonWrapper>

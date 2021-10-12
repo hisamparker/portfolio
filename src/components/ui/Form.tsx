@@ -1,10 +1,11 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 import Button from './Button';
+import Notification from './Notification';
 
 interface InputProps {
   valid: boolean;
@@ -77,82 +78,97 @@ const NotificationText = styled.div<InputProps>`
   top: -1.25rem;
 `;
 
-const Form: React.FC = () => (
-  <>
-    <Formik
-      validateOnChange
-      initialValues={{
-        name: '',
-        message: '',
-        email: '',
-      }}
-      validationSchema={validationSchema}
-      onSubmit={(data, { setSubmitting, resetForm }) => {
-        const { name, email, message } = data;
-        const serviceId = 'service_8zeycgu';
-        const templateId = 'contact_form';
-        const userId = 'user_ZT6CmHL5TWeQrDoDRYaDQ';
-        const templateParams = {
-          name,
-          email,
-          message,
-        };
+const Form: React.FC = () => {
+  const [submittedSucccessfully, setSubmittedSucccessfully] = useState(false);
 
-        emailjs.send(serviceId, templateId, templateParams, userId)
-          .then((response) => {
-            console.log(response);
-            resetForm();
-          })
-          .then((error) => {
-            console.log(error);
-          });
-        setSubmitting(true);
-        // make async call
-        console.log('submit: ', data);
-        setSubmitting(false);
-      }}
-    >
-      {({
-        isSubmitting, handleSubmit, errors, touched,
-      }) => (
-        <StyledForm onSubmit={handleSubmit}>
-          <Label>Name</Label>
-          <Field name="name" as={Input} valid={!errors.name && touched.name} error={errors.name && touched.name} />
-          {errors.name && touched.name && (
-            <NotificationText error valid={false}>{errors.name}</NotificationText>
-          )}
-          {!errors.name && touched.name && (
-            <NotificationText error={false} valid>Yay!</NotificationText>
-          )}
-          <Label>Email</Label>
-          <Field name="email" as={Input} valid={!errors.email && touched.email} error={errors.email && touched.email} />
-          {errors.email && touched.email && (
-            <NotificationText error valid={false}>{errors.email}</NotificationText>
-          )}
-          {!errors.email && touched.email && (
-            <NotificationText error={false} valid>TY ♡</NotificationText>
-          )}
-          <Label>Message</Label>
-          <Field name="message" as={TextArea} valid={!errors.message && touched.message} error={errors.message && touched.message} />
-          {errors.message && touched.message && (
-            <NotificationText error valid={false}>{errors.message}</NotificationText>
-          )}
-          {!errors.message && touched.message && (
-            <NotificationText error={false} valid>Interesting</NotificationText>
-          )}
-          {/* display cur values - must also add values to form props */}
-          {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
-          <Button
-            variant="primary"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Submit
-          </Button>
-        </StyledForm>
-      )}
-    </Formik>
-  </>
-);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSubmittedSucccessfully(false);
+    }, 3000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [submittedSucccessfully]);
+
+  return (
+    <>
+      <Formik
+        validateOnChange
+        initialValues={{
+          name: '',
+          message: '',
+          email: '',
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(data, { setSubmitting, resetForm }) => {
+          const { name, email, message } = data;
+          const serviceId = 'service_8zeycgu';
+          const templateId = 'contact_form';
+          const userId = 'user_ZT6CmHL5TWeQrDoDRYaDQ';
+          const templateParams = {
+            name,
+            email,
+            message,
+          };
+
+          emailjs.send(serviceId, templateId, templateParams, userId)
+            .then((response) => {
+              console.log(response);
+              resetForm();
+              setSubmitting(false);
+              setSubmittedSucccessfully(true);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+          setSubmitting(true);
+          // make async call
+          console.log('submit: ', data);
+        }}
+      >
+        {({
+          isSubmitting, handleSubmit, errors, touched,
+        }) => (
+          <StyledForm onSubmit={handleSubmit}>
+            {submittedSucccessfully && (<Notification type="success" message="submitted!" width="400px" />)}
+            <Label>Name</Label>
+            <Field name="name" as={Input} valid={!errors.name && touched.name} error={errors.name && touched.name} />
+            {errors.name && touched.name && (
+              <NotificationText error valid={false}>{errors.name}</NotificationText>
+            )}
+            {!errors.name && touched.name && (
+              <NotificationText error={false} valid>Yay!</NotificationText>
+            )}
+            <Label>Email</Label>
+            <Field name="email" as={Input} valid={!errors.email && touched.email} error={errors.email && touched.email} />
+            {errors.email && touched.email && (
+              <NotificationText error valid={false}>{errors.email}</NotificationText>
+            )}
+            {!errors.email && touched.email && (
+              <NotificationText error={false} valid>TY ♡</NotificationText>
+            )}
+            <Label>Message</Label>
+            <Field name="message" as={TextArea} valid={!errors.message && touched.message} error={errors.message && touched.message} />
+            {errors.message && touched.message && (
+              <NotificationText error valid={false}>{errors.message}</NotificationText>
+            )}
+            {!errors.message && touched.message && (
+              <NotificationText error={false} valid>Interesting</NotificationText>
+            )}
+            {/* display cur values - must also add values to form props */}
+            {/* <pre>{JSON.stringify(values, null, 2)}</pre> */}
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={isSubmitting || submittedSucccessfully}
+            >
+              {isSubmitting ? 'submit' : submittedSucccessfully ? 'submitted' : 'submit'}
+            </Button>
+          </StyledForm>
+        )}
+      </Formik>
+    </>
+  );
+};
 
 export default Form;
