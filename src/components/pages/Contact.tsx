@@ -26,7 +26,7 @@ const PageTitle = styled.h1`
 const Contact: React.FC = () => (
   <>
     <Helmet>
-      <title>Conntact Page of Sam&apos;`s Portfolio</title>
+      <title>Contact Page of Sam&apos;`s Portfolio</title>
     </Helmet>
     <ContentWrapper>
       <PageTitle>
