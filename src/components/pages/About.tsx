@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import AboutImage from '../../assets/images/about-image-min.png';
 import Tech from '../layout/Tech';
@@ -66,6 +67,9 @@ const ImageWrapper = styled.section`
 
 const About: React.FC = () => (
   <>
+    <Helmet>
+      <title>About Page of Sam&apos;`s Portfolio</title>
+    </Helmet>
     <AboutContentWrapper>
       <TextContentWrapper>
         <PageTitle>about</PageTitle>

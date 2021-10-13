@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import experienceArray from '../../assets/data/experience';
 import ExperienceCard from '../ui/ExperienceCard';
 import { ButtonWrapper } from './About';
@@ -34,6 +35,9 @@ export const PageTitle = styled.h1`
 
 const Experience: React.FC = () => (
   <>
+    <Helmet>
+      <title>Work Experience Page of Sam&apos;`s Portfolio</title>
+    </Helmet>
     <ContentWrapper>
       <PageTitle>experience</PageTitle>
       <ItemsWrapper>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import { ImpactText } from './Hero';
 import Form from '../ui/Form';
 
@@ -23,13 +24,18 @@ const PageTitle = styled.h1`
 `;
 
 const Contact: React.FC = () => (
-  <ContentWrapper>
-    <PageTitle>
-      Oh hai,
-      <ImpactText>Contact me:</ImpactText>
-    </PageTitle>
-    <Form />
-  </ContentWrapper>
+  <>
+    <Helmet>
+      <title>Conntact Page of Sam&apos;`s Portfolio</title>
+    </Helmet>
+    <ContentWrapper>
+      <PageTitle>
+        Oh hai,
+        <ImpactText>Contact me:</ImpactText>
+      </PageTitle>
+      <Form />
+    </ContentWrapper>
+  </>
 );
 
 export default Contact;

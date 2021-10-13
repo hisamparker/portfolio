@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import heroImage from '../../assets/images/hero-image-min.png';
 import LinkButton from '../ui/ButtonLink';
@@ -74,38 +75,43 @@ export const ParagraphWrapper = styled.section`
 `;
 
 const Hero: React.FC = () => (
-  <HeroContentWrapper>
-    <ImageWrapper>
-      <img src={heroImage} alt="sam" />
-      <PageTitle>
-        <span>Hi, </span>
-        <ImpactText>I&apos;m Sam</ImpactText>
-      </PageTitle>
-    </ImageWrapper>
-    <ParagraphWrapper>
-      <p>I love coding. Especially JavaScript, React, and CSS (styled components too!)</p>
-      <p>
-        Looking for work that combines my newfound love for code,
-        with my communications and education background.
-      </p>
-    </ParagraphWrapper>
-    <ButtonWrapper>
-      <LinkButton
-        variant="primary"
-        to="/projects"
-        href={null}
-      >
-        my projects
-      </LinkButton>
-      <LinkButton
-        variant="secondary"
-        to="/contact"
-        href={null}
-      >
-        contact me
-      </LinkButton>
-    </ButtonWrapper>
-  </HeroContentWrapper>
+  <>
+    <Helmet>
+      <title>Home Page of Sam&apos;s Portfolio</title>
+    </Helmet>
+    <HeroContentWrapper>
+      <ImageWrapper>
+        <img src={heroImage} alt="sam" />
+        <PageTitle>
+          <span>Hi, </span>
+          <ImpactText>I&apos;m Sam</ImpactText>
+        </PageTitle>
+      </ImageWrapper>
+      <ParagraphWrapper>
+        <p>I love coding. Especially JavaScript, React, and CSS (styled components too!)</p>
+        <p>
+          Looking for work that combines my newfound love for code,
+          with my communications and education background.
+        </p>
+      </ParagraphWrapper>
+      <ButtonWrapper>
+        <LinkButton
+          variant="primary"
+          to="/projects"
+          href={null}
+        >
+          my projects
+        </LinkButton>
+        <LinkButton
+          variant="secondary"
+          to="/contact"
+          href={null}
+        >
+          contact me
+        </LinkButton>
+      </ButtonWrapper>
+    </HeroContentWrapper>
+  </>
 );
 
 export default Hero;

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router, Route, Switch, useLocation,
 } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Footer from './components/layout/Footer';
 import Nav from './components/layout/Nav';
 import About from './components/pages/About';
@@ -22,6 +23,12 @@ const ScrollToTop: React.FC = (): null => {
 
 const App: React.FC = () => (
   <>
+    <Helmet>
+      <html lang="en" />
+      <title>Welcome to Sam&apos;s Portfolio</title>
+      <meta name="Sam's portfolio site" content="A portfolio site built with React and TypeScript" />
+      <meta name="theme-color" content="#E6E6FA" />
+    </Helmet>
     <Router>
       <ScrollToTop />
       <Nav />
